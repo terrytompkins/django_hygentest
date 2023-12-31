@@ -1,0 +1,19 @@
+{
+  "models": [
+    {
+      "name": "Book",
+      "fields": [
+        {"name": "title", "type": "CharField", "options": "max_length=100"},
+        {"name": "author", "type": "CharField", "options": "max_length=100"},
+        {"name": "published_date", "type": "DateField"}
+      ]
+    },
+    {
+      "name": "Author",
+      "fields": [
+        {"name": "name", "type": "CharField", "options": "max_length=100"},
+        {"name": "birth_date", "type": "DateField"}
+      ]
+    }
+  ]
+}
