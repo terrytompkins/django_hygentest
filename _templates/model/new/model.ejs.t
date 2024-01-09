@@ -1,5 +1,5 @@
 ---
-to: models.py
+to: <%= cwd %>/<%= app %>/models.py
 force: true
 ---
 from django.db import models

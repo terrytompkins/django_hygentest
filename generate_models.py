@@ -2,7 +2,7 @@ import json
 import subprocess
 
 def generate_models(models):
-    subprocess.run(['hygen', 'model', 'new', '--models', json.dumps(models)])
+    subprocess.run(['hygen', 'model', 'new', '--app', 'retail_store', '--models', json.dumps(models)])
 
 def main():
     with open('models.json') as file:
