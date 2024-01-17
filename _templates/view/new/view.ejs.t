@@ -19,4 +19,13 @@ class <%- h.changeCase.pascalCase(model.name) %>DetailView(generic.DetailView):
     model = <%- h.changeCase.pascalCase(model.name) %>
     template_name = '<%- model.name.toLowerCase() %>_detail.html'
 
+class <%- h.changeCase.pascalCase(model.name) %>CreateView(generic.CreateView):
+    form_class = <%- h.changeCase.pascalCase(model.name) %>Form
+    template_name = '<%- model.name.toLowerCase() %>_form.html'
+
+class <%- h.changeCase.pascalCase(model.name) %>UpdateView(generic.UpdateView):
+    form_class = <%- h.changeCase.pascalCase(model.name) %>Form
+    model = <%- h.changeCase.pascalCase(model.name) %>
+    template_name = '<%- model.name.toLowerCase() %>_form.html'
+
 <% }); %>
