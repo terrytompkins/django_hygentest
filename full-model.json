@@ -1,0 +1,61 @@
+{
+	"models": [
+	  {
+		"name": "MyModel",
+		"meta": {
+		  "ordering": ["-created_at"],
+		  "verbose_name": "My Model"
+		},
+		"fields": [
+		  {
+			"name": "id",
+			"type": "AutoField",
+			"primary_key": true
+		  },
+		  {
+			"name": "name",
+			"type": "CharField",
+			"max_length": 100,
+			"unique": true,
+			"blank": false,
+			"null": false
+		  },
+		  {
+			"name": "created_at",
+			"type": "DateTimeField",
+			"auto_now_add": true
+		  },
+		  {
+			"name": "updated_at",
+			"type": "DateTimeField",
+			"auto_now": true
+		  }
+		],
+		"relationships": [
+		  {
+			"name": "related_model",
+			"type": "ForeignKey",
+			"related_name": "my_model",
+			"to": "RelatedModel",
+			"on_delete": "CASCADE"
+		  }
+		]
+	  },
+	  {
+		"name": "RelatedModel",
+		"fields": [
+		  {
+			"name": "id",
+			"type": "AutoField",
+			"primary_key": true
+		  },
+		  {
+			"name": "info",
+			"type": "TextField",
+			"blank": true
+		  }
+		]
+	  }
+	]
+  }
+  
