@@ -1,18 +1,18 @@
 from django import forms
 
-from .models import Book
+from .models import MyModel
 
-class BookForm(forms.ModelForm):
+class MyModelForm(forms.ModelForm):
     class Meta:
-        model = Book
+        model = MyModel
         fields = '__all__'
 
 
-from .models import Author
+from .models import RelatedModel
 
-class AuthorForm(forms.ModelForm):
+class RelatedModelForm(forms.ModelForm):
     class Meta:
-        model = Author
+        model = RelatedModel
         fields = '__all__'
 
 
