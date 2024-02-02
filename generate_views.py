@@ -2,8 +2,8 @@ import json
 import subprocess
 
 def generate_files(models):
-    subprocess.run(['hygen', 'view', 'new', '--app', 'retail_store', '--models', json.dumps(models)])
-    subprocess.run(['hygen', 'form', 'new', '--app', 'retail_store', '--models', json.dumps(models)])
+    subprocess.run(['hygen', 'view', 'new', 'view', '--app', 'retail_store', '--models', json.dumps(models)])
+    subprocess.run(['hygen', 'form', 'new', 'form', '--app', 'retail_store', '--models', json.dumps(models)])
     # subprocess.run(['hygen', 'view', 'new', 'detail_view.html', '--app', 'retail_store', '--models', json.dumps(models)])
 
 def main():

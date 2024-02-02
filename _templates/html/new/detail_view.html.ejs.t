@@ -1,5 +1,5 @@
 ---
-to: templates/<%- h.changeCase.snakeCase(model.name) %>_detail.html
+to: templates/<%= h.changeCase.snakeCase(model.name) %>_detail.html
 force: true
 ---
 {% extends 'base.html' %}
