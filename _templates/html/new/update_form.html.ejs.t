@@ -1,12 +1,14 @@
 ---
-to: templates/<%- h.changeCase.snakeCase(model.name) %>_form.html
+to: templates/<%- h.changeCase.snakeCase(model_name) %>/form.html
 force: true
 ---
+<% var isUpdate = false; %>
 {% extends 'base.html' %}
 
 {% block content %}
+<% let parsedModel = Array.isArray(model) ? model : JSON.parse(model); -%>
 <div class="container">
-    <h2>{% if not object %}Create<% } else %>Update<% } %> <%- h.changeCase.titleCase(model.name) %></h2>
+    <h2><% if (isUpdate) { %>Update<% } else { %>Create<% } %> <%- h.changeCase.titleCase(parsedModel.name) %></h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

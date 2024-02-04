@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>My Model List</h2>
+    <table>
+        <thead>
+            <tr>
+            
+                <th>Id</th>
+            
+                <th>Name</th>
+            
+                <th>Created At</th>
+            
+                <th>Updated At</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in object_list %}
+            <tr>
+                
+                <td>{{ item.id }}</td>
+                
+                <td>{{ item.name }}</td>
+                
+                <td>{{ item.created_at }}</td>
+                
+                <td>{{ item.updated_at }}</td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

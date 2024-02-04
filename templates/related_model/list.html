@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Related Model List</h2>
+    <table>
+        <thead>
+            <tr>
+            
+                <th>Id</th>
+            
+                <th>Info</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in object_list %}
+            <tr>
+                
+                <td>{{ item.id }}</td>
+                
+                <td>{{ item.info }}</td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

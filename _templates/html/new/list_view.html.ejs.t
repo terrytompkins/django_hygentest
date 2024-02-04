@@ -1,16 +1,17 @@
 ---
-to: templates/<%- h.changeCase.snakeCase(model.name) %>_list.html
+to: templates/<%- h.changeCase.snakeCase(model_name) %>/list.html
 force: true
 ---
 {% extends 'base.html' %}
 
 {% block content %}
+<% let parsedModel = Array.isArray(model) ? model : JSON.parse(model); -%>
 <div class="container">
-    <h2><%- h.changeCase.titleCase(model.name) %> List</h2>
+    <h2><%- h.changeCase.titleCase(parsedModel.name) %> List</h2>
     <table>
         <thead>
             <tr>
-            <% model.fields.forEach(function(field) { %>
+            <% parsedModel.fields.forEach(function(field) { %>
                 <th><%- h.changeCase.titleCase(field.name) %></th>
             <% }); %>
             </tr>
@@ -18,7 +19,7 @@ force: true
         <tbody>
             {% for item in object_list %}
             <tr>
-                <% model.fields.forEach(function(field) { %>
+                <% parsedModel.fields.forEach(function(field) { %>
                 <td>{{ item.<%- field.name %> }}</td>
                 <% }); %>
             </tr>

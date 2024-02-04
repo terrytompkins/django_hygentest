@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>My Model Detail</h2>
+    <dl>
+        
+        <dt>Id</dt>
+        <dd>{{ item.id }}</dd>
+        
+        <dt>Name</dt>
+        <dd>{{ item.name }}</dd>
+        
+        <dt>Created At</dt>
+        <dd>{{ item.created_at }}</dd>
+        
+        <dt>Updated At</dt>
+        <dd>{{ item.updated_at }}</dd>
+        
+        
+        <dt>Related Model</dt>
+        <dd>{{ item.related_model }}</dd>
+        
+    </dl>
+</div>
+{% endblock %}
