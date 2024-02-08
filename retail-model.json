@@ -1,0 +1,147 @@
+{
+    "models": [
+      {
+        "name": "Product",
+        "fields": [
+          {
+            "name": "id",
+            "type": "AutoField",
+            "primary_key": true
+          },
+          {
+            "name": "name",
+            "type": "CharField",
+            "max_length": 255,
+            "unique": true,
+            "blank": false,
+            "null": false
+          },
+          {
+            "name": "description",
+            "type": "TextField",
+            "blank": true
+          },
+          {
+            "name": "price",
+            "type": "DecimalField",
+            "max_digits": 10,
+            "decimal_places": 2,
+            "null": false
+          },
+          {
+            "name": "stock",
+            "type": "IntegerField",
+            "default": 0,
+            "null": false
+          }
+        ]
+      },
+      {
+        "name": "Customer",
+        "fields": [
+          {
+            "name": "id",
+            "type": "AutoField",
+            "primary_key": true
+          },
+          {
+            "name": "first_name",
+            "type": "CharField",
+            "max_length": 150,
+            "blank": false,
+            "null": false
+          },
+          {
+            "name": "last_name",
+            "type": "CharField",
+            "max_length": 150,
+            "blank": false,
+            "null": false
+          },
+          {
+            "name": "email",
+            "type": "EmailField",
+            "unique": true,
+            "blank": false,
+            "null": false
+          },
+          {
+            "name": "phone",
+            "type": "CharField",
+            "max_length": 15,
+            "blank": true
+          }
+        ]
+      },
+      {
+        "name": "Order",
+        "fields": [
+          {
+            "name": "id",
+            "type": "AutoField",
+            "primary_key": true
+          },
+          {
+            "name": "order_date",
+            "type": "DateTimeField",
+            "auto_now_add": true
+          },
+          {
+            "name": "status",
+            "type": "CharField",
+            "max_length": 100,
+            "default": "pending"
+          }
+        ],
+        "relationships": [
+          {
+            "name": "customer",
+            "type": "ForeignKey",
+            "related_name": "orders",
+            "to": "Customer",
+            "on_delete": "CASCADE"
+          }
+        ]
+      },
+      {
+        "name": "LineItem",
+        "fields": [
+          {
+            "name": "id",
+            "type": "AutoField",
+            "primary_key": true
+          },
+          {
+            "name": "quantity",
+            "type": "IntegerField",
+            "default": 1,
+            "null": false
+          },
+          {
+            "name": "price",
+            "type": "DecimalField",
+            "max_digits": 10,
+            "decimal_places": 2,
+            "null": false
+          }
+        ],
+        "relationships": [
+          {
+            "name": "order",
+            "type": "ForeignKey",
+            "related_name": "line_items",
+            "to": "Order",
+            "on_delete": "CASCADE"
+          },
+          {
+            "name": "product",
+            "type": "ForeignKey",
+            "related_name": "line_items",
+            "to": "Product",
+            "on_delete": "CASCADE"
+          }
+        ]
+      }
+    ]
+  }
+  
